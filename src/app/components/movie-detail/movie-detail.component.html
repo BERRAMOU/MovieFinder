@@ -6,65 +6,68 @@
     </div>
     <div class="panel-body">
       <div class="row">
-        <div  class="col-md-5">
-            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <div class="col-md-5 link_class">
+          <img *ngIf="movie.poster_path" class="thumbnail img-center" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+          <br>
+          <a *ngIf="movie.homepage" href="{{ movie.homepage}}" class="btn btn-default btn-lg link_class"> visit the movie home page </a>
         </div>
 
-        <div  class="col-md-7">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <h4> Genres : </h4> <span *ngFor=" let genre of movie.genres ">
+        <div class="col-md-7">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <h4> Genres : </h4> <span *ngFor=" let genre of movie.genres ">
              {{ genre.name }} -
           </span>
-          </li>
+            </li>
 
-          <li class="list-group-item">
-           <h4> Date Release : </h4>
-            {{ movie.release_date }}
-          </li>
+            <li class="list-group-item">
+              <h4> Date Release : </h4>
+              {{ movie.release_date }}
+            </li>
 
-          <li class="list-group-item">
-            <h4> Original Language :</h4>
-            {{ movie.original_language }}
-          </li>
+            <li class="list-group-item">
+              <h4> Original Language :</h4>
+              {{ movie.original_language }}
+            </li>
 
-          <li class="list-group-item">
-            <h4>Spoken Languages : </h4>
-            <span *ngFor=" let language of movie.spoken_languages ">
+            <li class="list-group-item">
+              <h4>Spoken Languages : </h4>
+              <span *ngFor=" let language of movie.spoken_languages ">
              {{ language.name }} -
           </span>
-          </li>
+            </li>
 
-          <li class="list-group-item">
-            <h4> Production Companies :</h4> <span *ngFor=" let company of movie.production_companies ">
+            <li class="list-group-item">
+              <h4> Production Companies :</h4> <span *ngFor=" let company of movie.production_companies ">
              {{ company .name }} -
           </span>
-          </li>
-          <li class="list-group-item">
-            <h4> Production Contries :</h4> <span *ngFor=" let contry of movie.production_countries ">
+            </li>
+            <li class="list-group-item">
+              <h4> Production Contries :</h4> <span *ngFor=" let contry of movie.production_countries ">
              {{ contry.name }} -
           </span>
-          </li>
+            </li>
 
-          <li class="list-group-item">
-           <h4> Overview :</h4>
-            {{ movie.overview }}
-          </li>
-          <li class="list-group-item">
-           <h4> Revenue :</h4>
-            {{ movie.revenue }} $
-          </li>
+            <li class="list-group-item">
+              <h4> Overview :</h4>
+              {{ movie.overview }}
+            </li>
+            <li class="list-group-item">
+              <h4> Revenue :</h4>
+              {{ movie.revenue }} $
+            </li>
 
-          <li class="list-group-item">
-            <h4>  Budget :</h4>
-            {{ movie.budget }} $
-          </li>
-          <li class="list-group-item">
-            <h4>Status :</h4>
-            {{ movie.status }}
-          </li>
+            <li class="list-group-item">
+              <h4> Budget :</h4>
+              {{ movie.budget }} $
+            </li>
+            <li class="list-group-item">
+              <h4>Status :</h4>
+              {{ movie.status }}
+            </li>
 
-        </ul>
+          </ul>
+
         </div>
       </div>
     </div>

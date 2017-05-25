@@ -1,34 +1,34 @@
-import { Injectable } from '@angular/core';
-import  { Jsonp } from  '@angular/http';
+import {Injectable} from '@angular/core';
+import  {Jsonp} from  '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
 export class MovieService {
 
-   apiKey : string ;
+  apiKey: string;
 
-   constructor(private _jsonp : Jsonp) {
+  constructor(private _jsonp: Jsonp) {
     this.apiKey = '979a29960b83c7025ad559983bf870ab';
     console.log("MoviesService inialized ..");
   }
 
-  getPopular(){
+  getPopular() {
 
-     return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&api_key='+this.apiKey)
-       .map(
-         res => res.json()
-       );
-  }
-
-  getInTheaters(){
-
-    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&primary_release_date.gte=2016-06-20&primary_release_date.lte=2017-05-20&sort_by=popularity.desc&api_key='+this.apiKey)
+    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&api_key=' + this.apiKey)
       .map(
         res => res.json()
       );
   }
 
-  searchMovies(str : string ) {
+  getInTheaters() {
+
+    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&primary_release_date.gte=2016-06-20&primary_release_date.lte=2017-05-20&sort_by=popularity.desc&api_key=' + this.apiKey)
+      .map(
+        res => res.json()
+      );
+  }
+
+  searchMovies(str: string) {
 
     return this._jsonp.get('https://api.themoviedb.org/3/search/movie?callback=JSONP_CALLBACK&query=' + str + '&sort_by=popularity.desc&api_key=' + this.apiKey)
       .map(
@@ -38,7 +38,7 @@ export class MovieService {
 
   getMovie(id: string) {
 
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+id+'?callback=JSONP_CALLBACK&api_key='+this.apiKey)
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + id + '?callback=JSONP_CALLBACK&api_key=' + this.apiKey)
       .map(
         res => res.json()
       );
