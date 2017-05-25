@@ -36,4 +36,12 @@ export class MovieService {
       );
   }
 
+  getMovie(id: string) {
+
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/'+id+'?callback=JSONP_CALLBACK&api_key='+this.apiKey)
+      .map(
+        res => res.json()
+      );
+
+  }
 }

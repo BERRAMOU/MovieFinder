@@ -5,12 +5,22 @@ import {HttpModule, Jsonp, JsonpModule} from '@angular/http';
 import {AppComponent} from "./app.component";
 import { MovieComponent } from './components/movie/movie.component';
 import {MovieService} from "./services/movie.service";
+import {RouterModule, Routes} from "@angular/router";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
+const appRoutes: Routes = [
+  { path: '', component: MovieComponent },
+  { path: 'movie/:id', component: MovieDetailComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieComponent
+    MovieComponent,
+    PageNotFoundComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +28,7 @@ import {MovieService} from "./services/movie.service";
     HttpModule ,
     HttpModule,
     JsonpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ MovieService ],
   bootstrap: [ AppComponent ]

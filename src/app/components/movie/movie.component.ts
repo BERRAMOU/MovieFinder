@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MovieService} from "../../services/movie.service";
-
+// import { ROUTER_DIRECTIVES } from '@angular/router';
 @Component({
   selector: 'movies',
   templateUrl: './movie.component.html',
