@@ -1,9 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-img{
+img {
   width: 60%;
 }
+.link_class {
+  text-align: center;
+}
 
-h1,h2 , h3 , h5 , h4 {
+.img-center {
+  margin:0 auto;
+}
+li h1, li h2, li h3, li h5, li h4 {
   display: inline;
 }
